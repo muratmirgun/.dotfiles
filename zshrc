@@ -73,7 +73,11 @@ FZF_LINES=`expr $HEIGHT - 1`
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
-
+export PNPM_HOME="/Users/muratpersonal/Library/pnpm"
+case ":$PATH:" in
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 # ? This loads nvm
 export PATH=/home/$USER/.config/nvcode/utils/bin:$PATH
